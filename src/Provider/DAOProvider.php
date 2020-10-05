@@ -10,6 +10,7 @@ use Setono\DAO\Client\ClientInterface;
 use Setono\SyliusPickupPointPlugin\Exception\TimeoutException;
 use Setono\SyliusPickupPointPlugin\Model\PickupPoint;
 use Setono\SyliusPickupPointPlugin\Model\PickupPointCode;
+use Setono\SyliusPickupPointPlugin\Model\PickupPointCodeInterface;
 use Setono\SyliusPickupPointPlugin\Model\PickupPointInterface;
 use Sylius\Component\Core\Model\OrderInterface;
 
@@ -43,7 +44,7 @@ final class DAOProvider extends Provider
         ]);
     }
 
-    public function findPickupPoint(PickupPointCode $code): ?PickupPointInterface
+    public function findPickupPoint(PickupPointCodeInterface $code): ?PickupPointInterface
     {
         foreach ($this->_findPickupPoints([
             'shopid' => $code->getIdPart(),

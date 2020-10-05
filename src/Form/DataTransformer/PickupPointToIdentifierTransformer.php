@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Setono\SyliusPickupPointPlugin\Form\DataTransformer;
+namespace App\Form\DataTransformer;
 
 use function Safe\sprintf;
 use Setono\SyliusPickupPointPlugin\Model\PickupPoint;
-use Setono\SyliusPickupPointPlugin\Model\PickupPointCode;
+use App\Entity\Shipping\PickupPointCode;
 use Setono\SyliusPickupPointPlugin\Provider\ProviderInterface;
 use Sylius\Component\Registry\ServiceRegistryInterface;
 use Symfony\Component\Form\DataTransformerInterface;

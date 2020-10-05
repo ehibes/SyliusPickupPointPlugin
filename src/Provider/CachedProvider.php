@@ -11,6 +11,7 @@ use RuntimeException;
 use function Safe\sprintf;
 use Setono\SyliusPickupPointPlugin\Model\PickupPoint;
 use Setono\SyliusPickupPointPlugin\Model\PickupPointCode;
+use Setono\SyliusPickupPointPlugin\Model\PickupPointCodeInterface;
 use Setono\SyliusPickupPointPlugin\Model\PickupPointInterface;
 use Sylius\Component\Core\Model\AddressInterface;
 use Sylius\Component\Core\Model\OrderInterface;
@@ -65,7 +66,7 @@ final class CachedProvider extends Provider
         return $pickupPoints;
     }
 
-    public function findPickupPoint(PickupPointCode $code): ?PickupPointInterface
+    public function findPickupPoint(PickupPointCodeInterface $code): ?PickupPointInterface
     {
         $pickupPointCacheKey = $this->buildPickupPointIdCacheKey($code);
         if (!$this->cacheItemPool->hasItem($pickupPointCacheKey)) {
@@ -131,7 +132,7 @@ final class CachedProvider extends Provider
         );
     }
 
-    private function buildPickupPointIdCacheKey(PickupPointCode $id): string
+    private function buildPickupPointIdCacheKey(PickupPointCodeInterface $id): string
     {
         return $id->getValue();
     }

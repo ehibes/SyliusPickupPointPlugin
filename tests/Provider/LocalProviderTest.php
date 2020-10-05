@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Setono\SyliusPickupPointPlugin\Exception\TimeoutException;
 use Setono\SyliusPickupPointPlugin\Model\PickupPoint;
 use Setono\SyliusPickupPointPlugin\Model\PickupPointCode;
+use Setono\SyliusPickupPointPlugin\Model\PickupPointCodeInterface;
 use Setono\SyliusPickupPointPlugin\Model\PickupPointInterface;
 use Setono\SyliusPickupPointPlugin\Provider\FakerProvider;
 use Setono\SyliusPickupPointPlugin\Provider\LocalProvider;
@@ -83,7 +84,7 @@ final class LocalProviderTest extends TestCase
                     throw new TimeoutException();
                 }
 
-                public function findPickupPoint(PickupPointCode $code): ?PickupPointInterface
+                public function findPickupPoint(PickupPointCodeInterface $code): ?PickupPointInterface
                 {
                     throw new TimeoutException();
                 }

@@ -41,7 +41,7 @@ class PickupPoint implements PickupPointInterface
     protected $longitude;
 
     public function __construct(
-        PickupPointCode $code,
+        PickupPointCodeInterface $code,
         string $name,
         string $address,
         string $zipCode,
@@ -65,12 +65,12 @@ class PickupPoint implements PickupPointInterface
         return $this->id;
     }
 
-    public function getCode(): PickupPointCode
+    public function getCode(): PickupPointCodeInterface
     {
         return $this->code;
     }
 
-    public function setCode(PickupPointCode $code): void
+    public function setCode(PickupPointCodeInterface $code): void
     {
         $this->code = $code;
     }

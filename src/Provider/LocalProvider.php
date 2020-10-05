@@ -6,6 +6,7 @@ namespace Setono\SyliusPickupPointPlugin\Provider;
 
 use Setono\SyliusPickupPointPlugin\Exception\TimeoutException;
 use Setono\SyliusPickupPointPlugin\Model\PickupPointCode;
+use Setono\SyliusPickupPointPlugin\Model\PickupPointCodeInterface;
 use Setono\SyliusPickupPointPlugin\Model\PickupPointInterface;
 use Setono\SyliusPickupPointPlugin\Repository\PickupPointRepositoryInterface;
 use Sylius\Component\Core\Model\OrderInterface;
@@ -33,7 +34,7 @@ final class LocalProvider extends Provider
         }
     }
 
-    public function findPickupPoint(PickupPointCode $code): ?PickupPointInterface
+    public function findPickupPoint(PickupPointCodeInterface $code): ?PickupPointInterface
     {
         try {
             return $this->decoratedProvider->findPickupPoint($code);
